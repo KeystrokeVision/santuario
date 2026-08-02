@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -134,6 +135,113 @@ nav.scrolled {
   transition: color 0.3s;
 }
 .mobile-menu a:hover { color: var(--dorado); }
+
+/* ===== SANTA MUERTE DECOR ===== */
+.hero-santa-muerte {
+  position: absolute;
+  z-index: 3;
+  opacity: 0.16;
+  pointer-events: none;
+  filter: drop-shadow(0 0 30px rgba(201,146,58,0.25));
+}
+.hero-santa-muerte.left { left: 2%; bottom: 0; width: 220px; }
+.hero-santa-muerte.right { right: 2%; bottom: 0; width: 220px; transform: scaleX(-1); }
+@media (max-width: 900px) {
+  .hero-santa-muerte { display: none; }
+}
+
+/* ===== MAESTRO / BRUJO SECTION ===== */
+#maestro {
+  padding: 100px 32px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(30,10,46,0.4) 0%, transparent 60%),
+    var(--negro-suave);
+  border-top: 1px solid rgba(201,146,58,0.12);
+  border-bottom: 1px solid rgba(201,146,58,0.12);
+}
+.maestro-grid {
+  max-width: 1180px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 850px) {
+  .maestro-grid { grid-template-columns: 1fr; text-align: center; }
+  .maestro-portrait-wrap { margin: 0 auto; }
+}
+.maestro-portrait-wrap {
+  position: relative;
+  width: 320px; height: 320px;
+}
+.maestro-portrait-glow {
+  position: absolute; inset: -30px;
+  background: radial-gradient(circle, rgba(201,146,58,0.25) 0%, transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+.maestro-portrait {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--dorado);
+  box-shadow: 0 0 0 6px rgba(8,6,8,0.9), 0 0 50px rgba(201,146,58,0.35), inset 0 0 60px rgba(0,0,0,0.6);
+  background: radial-gradient(circle at 50% 30%, #1e0a2e 0%, #110d10 70%, #080608 100%);
+}
+.maestro-portrait svg { width: 100%; height: 100%; display: block; }
+.maestro-ring {
+  position: absolute; inset: -14px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201,146,58,0.4);
+  animation: spinSlow 30s linear infinite;
+}
+@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.maestro-text .section-label { margin: 0 0 14px; }
+@media (max-width: 850px) {
+  .maestro-text .section-label { justify-content: center; }
+}
+.maestro-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--dorado-claro);
+  margin-bottom: 6px;
+  text-shadow: 0 0 30px rgba(201,146,58,0.3);
+}
+.maestro-role {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--rojo-vivo);
+  margin-bottom: 22px;
+}
+.maestro-bio {
+  color: rgba(240,230,211,0.82);
+  font-size: 1.05rem;
+  margin-bottom: 26px;
+  max-width: 560px;
+}
+@media (max-width: 850px) { .maestro-bio { margin-left: auto; margin-right: auto; } }
+.maestro-badges {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 30px;
+}
+@media (max-width: 850px) { .maestro-badges { justify-content: center; } }
+.maestro-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dorado-claro);
+  border: 1px solid rgba(201,146,58,0.35);
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(201,146,58,0.06);
+}
 
 /* ===== HERO ===== */
 #hero {
@@ -1015,6 +1123,46 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
+
+  <svg class="hero-santa-muerte left" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="smGold1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f2d49a"/>
+        <stop offset="100%" stop-color="#c9923a"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="100" cy="60" rx="34" ry="12" fill="url(#smGold1)" opacity="0.5"/>
+    <path d="M100 25 C118 25 128 45 126 62 C124 78 112 84 100 84 C88 84 76 78 74 62 C72 45 82 25 100 25 Z" fill="none" stroke="url(#smGold1)" stroke-width="2.2"/>
+    <circle cx="88" cy="55" r="4" fill="url(#smGold1)"/>
+    <circle cx="112" cy="55" r="4" fill="url(#smGold1)"/>
+    <path d="M92 70 Q100 66 108 70" stroke="url(#smGold1)" stroke-width="2" fill="none"/>
+    <path d="M100 84 L100 130 M100 100 L70 90 M100 100 L130 90 M100 130 L75 250 M100 130 L125 250" stroke="url(#smGold1)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M55 100 C40 130 40 200 55 260 C70 300 130 300 145 260 C160 200 160 130 145 100 C150 160 50 160 55 100 Z" fill="none" stroke="url(#smGold1)" stroke-width="1.6" opacity="0.85"/>
+    <path d="M60 150 L140 150 M55 190 L145 190 M60 230 L140 230" stroke="url(#smGold1)" stroke-width="1" opacity="0.4"/>
+    <path d="M130 95 L172 40" stroke="url(#smGold1)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M172 40 C185 30 195 35 190 48 C185 60 165 55 168 48 Z" fill="none" stroke="url(#smGold1)" stroke-width="1.8"/>
+    <path d="M70 95 L45 75" stroke="url(#smGold1)" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="40" cy="70" r="9" fill="none" stroke="url(#smGold1)" stroke-width="1.6"/>
+  </svg>
+
+  <svg class="hero-santa-muerte right" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="smGold2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f2d49a"/>
+        <stop offset="100%" stop-color="#c9923a"/>
+      </linearGradient>
+    </defs>
+    <path d="M100 25 C118 25 128 45 126 62 C124 78 112 84 100 84 C88 84 76 78 74 62 C72 45 82 25 100 25 Z" fill="none" stroke="url(#smGold2)" stroke-width="2.2"/>
+    <circle cx="88" cy="55" r="4" fill="url(#smGold2)"/>
+    <circle cx="112" cy="55" r="4" fill="url(#smGold2)"/>
+    <path d="M92 70 Q100 66 108 70" stroke="url(#smGold2)" stroke-width="2" fill="none"/>
+    <path d="M100 84 L100 130 M100 100 L70 90 M100 100 L130 90 M100 130 L75 250 M100 130 L125 250" stroke="url(#smGold2)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M55 100 C40 130 40 200 55 260 C70 300 130 300 145 260 C160 200 160 130 145 100 C150 160 50 160 55 100 Z" fill="none" stroke="url(#smGold2)" stroke-width="1.6" opacity="0.85"/>
+    <path d="M60 150 L140 150 M55 190 L145 190 M60 230 L140 230" stroke="url(#smGold2)" stroke-width="1" opacity="0.4"/>
+    <path d="M130 95 L172 40" stroke="url(#smGold2)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M172 40 C185 30 195 35 190 48 C185 60 165 55 168 48 Z" fill="none" stroke="url(#smGold2)" stroke-width="1.8"/>
+  </svg>
+
   <div class="hero-content">
     <div class="hero-eyebrow">Más de 35 años de experiencia</div>
     <h1 class="hero-title">
@@ -1228,6 +1376,75 @@ footer {
         <h3>Seguimiento del Trabajo</h3>
         <p>Haremos un seguimiento del trabajo realizado a través de fotos y vídeos para su seguridad si lo desea.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAESTRO -->
+<section id="maestro">
+  <div class="maestro-grid">
+    <div class="maestro-portrait-wrap reveal">
+      <div class="maestro-portrait-glow"></div>
+      <div class="maestro-ring"></div>
+      <div class="maestro-portrait">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración artística del maestro El Unicornio Negro">
+          <defs>
+            <radialGradient id="mBg" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#241033"/>
+              <stop offset="60%" stop-color="#150a1e"/>
+              <stop offset="100%" stop-color="#080608"/>
+            </radialGradient>
+            <linearGradient id="mGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f2d49a"/>
+              <stop offset="100%" stop-color="#c9923a"/>
+            </linearGradient>
+            <linearGradient id="mCloak" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a1420"/>
+              <stop offset="100%" stop-color="#0d0810"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="320" fill="url(#mBg)"/>
+          <!-- humo mistico -->
+          <path d="M40 300 Q80 250 40 210 Q0 170 60 130" stroke="rgba(201,146,58,0.18)" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M280 300 Q240 250 280 210 Q320 170 260 130" stroke="rgba(122,26,38,0.22)" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- capa con capucha -->
+          <path d="M160 90 C110 90 78 150 78 230 L78 300 L242 300 L242 230 C242 150 210 90 160 90 Z" fill="url(#mCloak)" stroke="url(#mGold)" stroke-width="1.4"/>
+          <!-- rostro en sombra -->
+          <ellipse cx="160" cy="165" rx="46" ry="54" fill="#0a0508"/>
+          <ellipse cx="160" cy="165" rx="46" ry="54" fill="none" stroke="url(#mGold)" stroke-width="1" opacity="0.5"/>
+          <!-- ojos brillantes -->
+          <ellipse cx="142" cy="168" rx="4.5" ry="3" fill="url(#mGold)"/>
+          <ellipse cx="178" cy="168" rx="4.5" ry="3" fill="url(#mGold)"/>
+          <!-- cuerno de unicornio -->
+          <path d="M160 40 L152 92 L168 92 Z" fill="url(#mGold)"/>
+          <path d="M156 55 L164 55 M155 68 L165 68 M154 81 L166 81" stroke="#1c1419" stroke-width="1.2"/>
+          <!-- capucha borde -->
+          <path d="M108 100 C120 78 140 66 160 66 C180 66 200 78 212 100" fill="none" stroke="url(#mGold)" stroke-width="2"/>
+          <!-- collar / amuleto -->
+          <circle cx="160" cy="225" r="14" fill="none" stroke="url(#mGold)" stroke-width="2"/>
+          <circle cx="160" cy="225" r="4" fill="url(#mGold)"/>
+          <path d="M140 210 L160 225 L180 210" stroke="url(#mGold)" stroke-width="1.4" fill="none"/>
+          <!-- estrellas -->
+          <circle cx="60" cy="60" r="1.6" fill="url(#mGold)" opacity="0.8"/>
+          <circle cx="260" cy="80" r="1.6" fill="url(#mGold)" opacity="0.7"/>
+          <circle cx="230" cy="50" r="1.2" fill="url(#mGold)" opacity="0.6"/>
+          <circle cx="90" cy="45" r="1.2" fill="url(#mGold)" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="maestro-text reveal">
+      <div class="section-label">Nuestro Guía Espiritual</div>
+      <h2 class="maestro-name">Maestro <em>El Unicornio Negro</em></h2>
+      <div class="maestro-role">Vidente · Ritualista · Guía en Pactos Ancestrales</div>
+      <p class="maestro-bio">Con más de 35 años dedicados al estudio de las artes ocultas, el Maestro El Unicornio Negro ha guiado a miles de personas en más de 25 países en procesos de amarres, endulzamientos y pactos con la Santa Muerte. Su nombre es un sello de discreción, compromiso y resultados.</p>
+      <div class="maestro-badges">
+        <span class="maestro-badge">35+ Años de Experiencia</span>
+        <span class="maestro-badge">15.000+ Consultas</span>
+        <span class="maestro-badge">Total Confidencialidad</span>
+      </div>
+      <a href="https://wa.me/+573144023144?text=Hola%20Maestro%20Unicornio%20Negro,%20me%20gustaria%20hacerle%20una%20consulta" class="btn-wa" target="_blank">
+        <span>WhatsApp</span> Consultar al Maestro
+      </a>
     </div>
   </div>
 </section>
